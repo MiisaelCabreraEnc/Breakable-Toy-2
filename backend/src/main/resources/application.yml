@@ -1,0 +1,36 @@
+spotify:
+  client-id: ${SPOTIFY_CLIENT_ID}
+  client-secret: ${SPOTIFY_CLIENT_SECRET}
+  redirect-uri: ${SPOTIFY_REDIRECT_URI}
+  token-url: https://accounts.spotify.com/api/token
+
+secret-key: ${SECRET_KEY}
+project-url: ${PROJECT-URL}
+
+spring:
+  application:
+    name: backend
+  security:
+    auth:
+      url: ${project-url}/oauth2/authorization/spotify
+    oauth2:
+      client:
+        registration:
+          spotify:
+            client-id: ${spotify.client-id}
+            client-secret: ${spotify.client-secret}
+            scope: user-read-private,user-read-email,user-top-read
+            authorization-grant-type: authorization_code
+            redirect-uri: ${spotify.redirect-uri}
+            client-authentication-method: client_secret_basic
+        provider:
+          spotify:
+            authorization-uri: https://accounts.spotify.com/authorize
+            token-uri: https://accounts.spotify.com/api/token
+            user-info-uri: https://api.spotify.com/v1/me
+            user-name-attribute: display_name
+
+server:
+  port: 9090
+
+
