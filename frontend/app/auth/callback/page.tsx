@@ -1,8 +1,8 @@
 "use client";
-import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
+import CircularProgress from "../../../components/atoms/CiruclarProgress/CircularProgress";
 
 export default function Callback() {
   const router = useRouter();
@@ -30,11 +30,7 @@ export default function Callback() {
 
   return (
     <main className="flex bg-gradient-to-tr from-slate-900 to-spotify-green flex-col p-8 h-screen  justify-center items-center">
-      <CircularProgress
-        color="inherit"
-        className="text-spotify-green"
-        size={"100px"}
-      />
+      <CircularProgress className="text-spotify-green m-auto border-8 border-spotify-green h-32 w-32" />
     </main>
   );
 }

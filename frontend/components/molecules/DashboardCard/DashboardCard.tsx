@@ -1,4 +1,4 @@
-import { Card, Typography } from "@material-tailwind/react";
+import { Card } from "@material-tailwind/react";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 
@@ -25,8 +25,8 @@ const DashboardCard: FunctionComponent<DashboardCardProps> = ({
           className="h-60 object-cover"
         />
         <Card.Body className="text-center">
-          <Typography type="h5">{name}</Typography>
-          <Typography className="my-2 text-sm text-foreground capitalize min-h-16 ">
+          <h5 className="font-semibold">{name}</h5>
+          <p className="my-2 text-sm text-foreground capitalize min-h-16 ">
             {genres.length === 0
               ? "No genres"
               : genres.map((genre, index) => (
@@ -34,7 +34,7 @@ const DashboardCard: FunctionComponent<DashboardCardProps> = ({
                     {genre + (index !== genres.length - 1 ? ", " : "")}
                   </span>
                 ))}
-          </Typography>
+          </p>
         </Card.Body>
       </Card>
     </Link>

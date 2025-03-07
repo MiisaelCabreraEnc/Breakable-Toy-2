@@ -1,4 +1,3 @@
-import { Typography } from "@material-tailwind/react";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import Artist from "../../../interfaces/Artist";
@@ -23,10 +22,8 @@ const AlbumData: FunctionComponent<AlbumDataProps> = ({
   return (
     <div className="w-1/3 flex-col flex">
       <img src={image} alt="" className="w-full pb-2" />
-      <Typography type="h3" className=" mb-2">
-        {name}
-      </Typography>
-      <Typography type="p" className=" mb-2 font-semibold text-lg">
+      <h3 className=" mb-2">{name}</h3>
+      <p className=" mb-2 font-semibold text-lg">
         {"By: "}
         {artists.map((artist, index) => (
           <Link
@@ -37,18 +34,18 @@ const AlbumData: FunctionComponent<AlbumDataProps> = ({
             {artist.name + (index < artists.length - 1 ? ", " : "")}
           </Link>
         ))}
-      </Typography>
-      <Typography type="p" className=" mb-2 font-semibold text-lg">
+      </p>
+      <p className=" mb-2 font-semibold text-lg">
         {"Year: " + release_date.split("-")[0]}
-      </Typography>
+      </p>
 
-      <Typography type="p" className=" mb-2 font-semibold text-lg">
+      <p className=" mb-2 font-semibold text-lg">
         {"Number of songs: " + total_tracks}
-      </Typography>
+      </p>
 
-      <Typography type="p" className=" mb-8 font-semibold text-lg">
+      <p className=" mb-8 font-semibold text-lg">
         {"Total duration: " + total_duration}
-      </Typography>
+      </p>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import CardData from "../../../interfaces/CardData";
-import { Card, Typography } from "@material-tailwind/react";
+import { Card } from "@material-tailwind/react";
 
 const MiniCard: FunctionComponent<CardData> = ({
   name,
@@ -24,12 +24,8 @@ const MiniCard: FunctionComponent<CardData> = ({
       />
       <Card.Body className="text-center p-4">
         <div>
-          <Typography className="capitalize text-sm font-semibold truncate">
-            {name}
-          </Typography>
-          {release_date && (
-            <Typography className="text-xs">{release_date}</Typography>
-          )}
+          <p className="capitalize text-sm font-semibold truncate">{name}</p>
+          {release_date && <p className="text-xs">{release_date}</p>}
         </div>
       </Card.Body>
     </Card>

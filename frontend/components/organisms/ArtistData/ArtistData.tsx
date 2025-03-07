@@ -1,4 +1,3 @@
-import { Typography } from "@material-tailwind/react";
 import { FunctionComponent } from "react";
 
 interface ArtistDataProps {
@@ -18,20 +17,18 @@ const ArtistData: FunctionComponent<ArtistDataProps> = ({
     <div className="w-1/3 flex-col flex">
       <img src={image} alt="" className="w-full pb-2" />
       <div className="flex lg:flex-row flex-col lg:items-end justify-between">
-        <Typography type="h1" className=" mb-2">
-          {name}
-        </Typography>
-        <Typography type="p" className=" mb-2 text-center">
+        <h1 className=" mb-2 font-bold text-xl">{name}</h1>
+        <p className="lg:text-base text-xs mb-2 lg:text-center">
           {followers + " Followers"}
-        </Typography>
+        </p>
       </div>
-      <Typography type="p" className=" mb-8 font-semibold text-lg">
+      <p className=" mb-8 font-semibold text-lg">
         {genres.map((genre, index) => (
           <span className="capitalize" key={genre}>
             {genre + (index !== genres.length - 1 ? ", " : "")}
           </span>
         ))}
-      </Typography>
+      </p>
     </div>
   );
 };

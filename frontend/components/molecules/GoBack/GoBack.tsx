@@ -2,7 +2,7 @@
 import { Button } from "@material-tailwind/react";
 import { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
-import ArrowLeftIcon from "../../atoms/icons/ArrowLeft/ArroLeft";
+import ArrowLeftIcon from "../../atoms/icons/ArrowLeft/ArrowLeft";
 
 const GoBack: FunctionComponent = () => {
   const router = useRouter();

@@ -2,13 +2,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Cookies from "js-cookie";
-import { Typography } from "@material-tailwind/react";
 import GoBack from "../../../../components/molecules/GoBack/GoBack";
 import ArtistData from "../../../../components/organisms/ArtistData/ArtistData";
 import ArtistTopSongsTable from "../../../../components/organisms/ArtistTopSongsTable/ArtistTopSongsTable";
 import Artist from "../../../../interfaces/Artist";
 import Track from "../../../../interfaces/Track";
-import Album from "../../../../Interfaces/Album";
+import Album from "../../../../interfaces/Album";
 import HorizontalScroll from "@/components/organisms/HorizontalScroll/HorizontalScroll";
 
 const TABLE_HEAD = ["#", "Album", "Song Name", "Duration"];
@@ -132,9 +131,7 @@ export default function ArtistPage() {
       </section>
       {!isLoading && artistAlbums && (
         <section className="flex flex-col w-10/12">
-          <Typography type="h2" className=" mb-8">
-            Discography
-          </Typography>
+          <h2 className=" mb-8">Discography</h2>
 
           <HorizontalScroll cards={artistAlbums} type={"album"} />
         </section>

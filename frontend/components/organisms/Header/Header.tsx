@@ -1,7 +1,7 @@
 "use client";
 import { FunctionComponent, useState, useEffect } from "react";
 import SpotifyIcon from "../../atoms/icons/Spotify/SpotifyIcon";
-import { Avatar, Typography } from "@material-tailwind/react";
+import { Avatar } from "@material-tailwind/react";
 import SearchForm from "../../molecules/SearchForm/SearchForm";
 import Cookies from "js-cookie";
 import Link from "next/link";
@@ -77,16 +77,14 @@ const Header: FunctionComponent = () => {
           <>
             <Link href={"/me/dashboard"} className="flex items-center">
               <SpotifyIcon className="text-spotify-green h-8 w-8  lg:h-12 lg:w-12 mr-2" />
-              <Typography type="h4">Spotify</Typography>
+              <h4>Spotify</h4>
             </Link>
 
             <SearchForm />
 
             <Link href={userData.url} className=" min-w-fit flex items-center ">
               <Avatar className="mr-2 h-8 w-8" src={userData.image} />
-              <Typography className="md:flex hidden">
-                {userData.name}
-              </Typography>
+              <p className="md:flex hidden">{userData.name}</p>
             </Link>
           </>
         )}

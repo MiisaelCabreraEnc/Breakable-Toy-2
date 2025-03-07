@@ -1,9 +1,7 @@
 import { FunctionComponent } from "react";
 import Track from "../../../interfaces/Track";
-import { Typography } from "@material-tailwind/react";
-import Link from "next/link";
 import TableHeadings from "../../molecules/TableHeadings/TableHeadings";
-import ArtistSongTableItem from "@/components/molecules/ArtistSongTableItem/ArtistSongTableItem";
+import ArtistSongTableItem from "../../molecules/ArtistSongTableItem/ArtistSongTableItem";
 
 interface ArtistTopSongsTableProps {
   title: string;
@@ -18,9 +16,7 @@ const ArtistTopSongsTable: FunctionComponent<ArtistTopSongsTableProps> = ({
 }) => {
   return (
     <div className="w-7/12  flex-col flex">
-      <Typography type="h2" className=" mb-8">
-        {title}
-      </Typography>
+      <h2 className=" mb-8">{title}</h2>
       <table className="w-full">
         <TableHeadings headings={headings} />
         <tbody className="group text-sm text-black dark:text-white">

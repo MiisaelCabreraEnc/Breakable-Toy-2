@@ -15,6 +15,10 @@ public class JwtServiceImpl implements JwtService {
     @Value("${secret-key}")
     private String SECRET_KEY  ;
 
+    public void setSECRET_KEY(String key) {
+        this.SECRET_KEY = key;
+    }
+
     @Override
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder()

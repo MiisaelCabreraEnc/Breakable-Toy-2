@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import SpotifyIcon from "../components/atoms/icons/Spotify/SpotifyIcon";
 import { Button } from "@material-tailwind/react/dist/components/button";
-import { Typography } from "@material-tailwind/react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
@@ -36,24 +35,19 @@ export default function Home() {
             : " scale-0 transition-all ease-in-out duration-300")
         }
       >
-        <div className=" h-full  absolute w-full  flex flex-col items-center justify-center">
-          <SpotifyIcon className="h-24 w-24 text-spotify-green" />
-          <Typography
-            type="h1"
-            className="m-8 md:text-2xl text-center font-bold"
-          >
-            Welcome to Spotify
-          </Typography>
-          <Button
-            variant="ghost"
-            isPill
-            size="lg"
-            className=" px-8 bg-spotify-green hover:bg-spotify-green-hovered transition-all ease-in duration-100"
-            onClick={handleLogin}
-          >
-            Log In
-          </Button>
-        </div>
+        <SpotifyIcon className="h-24 w-24 text-spotify-green" />
+        <h1 className="m-8 md:text-2xl text-center font-bold">
+          Welcome to Spotify
+        </h1>
+        <Button
+          variant="ghost"
+          isPill
+          size="lg"
+          className=" px-8 bg-spotify-green hover:bg-spotify-green-hovered transition-all ease-in duration-100"
+          onClick={handleLogin}
+        >
+          Log In
+        </Button>
       </div>
     </main>
   );

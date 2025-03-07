@@ -2,14 +2,13 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Cookies from "js-cookie";
-import { Typography } from "@material-tailwind/react";
 import HorizontalScroll from "../../../components/organisms/HorizontalScroll/HorizontalScroll";
 import GoBack from "../../../components/molecules/GoBack/GoBack";
 import Artist from "../../../interfaces/Artist";
-import Album from "../../../Interfaces/Album";
+import Album from "../../../interfaces/Album";
 import Track from "../../../interfaces/Track";
 
-export default function Dashboard() {
+export default function SearchPage() {
   const [artists, setArtists] = useState<Artist[]>();
   const [tracks, setTracks] = useState<Track[]>();
   const [albums, setAlbums] = useState<Album[]>();
@@ -58,26 +57,20 @@ export default function Dashboard() {
 
   return (
     <main className="p-8 min-h-screen bg-gradient-to-tr from-slate-900 to-spotify-green flex flex-col items-center">
-      <GoBack></GoBack>
+      <GoBack />
       {!isLoading && (
         <>
-          <Typography type="h1" className="w-10/12 mb-8">
-            {`Search results for "${query}"`}
-          </Typography>
+          <h1 className="w-10/12 text-2xl font-bold mb-8">{`Search results for "${query}"`}</h1>
           <div className="flex flex-col w-10/12">
             {artists && (
               <>
-                <Typography type="h3" className="w-10/12 mb-4">
-                  Artists
-                </Typography>
+                <h3 className="w-10/12 mb-4 text-xl font-semibold">Artists</h3>
                 <HorizontalScroll cards={artists} type="artist" />
               </>
             )}
             {albums && (
               <>
-                <Typography type="h3" className="w-10/12 mb-4">
-                  Albums
-                </Typography>
+                <h3 className="w-10/12 mb-4 text-xl font-semibold">Albums</h3>
                 <HorizontalScroll
                   cards={albums}
                   type="album"
@@ -86,9 +79,7 @@ export default function Dashboard() {
             )}
             {tracks && (
               <>
-                <Typography type="h3" className="w-10/12 mb-4">
-                  Tracks
-                </Typography>
+                <h3 className="w-10/12 mb-4 text-xl font-semibold">Tracks</h3>
                 <HorizontalScroll cards={tracks} type="track" />
               </>
             )}

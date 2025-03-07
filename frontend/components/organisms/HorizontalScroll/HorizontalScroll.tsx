@@ -1,8 +1,7 @@
-import { Card, Typography } from "@material-tailwind/react";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import CardData from "../../../interfaces/CardData";
-import MiniCard from "@/components/molecules/MiniCard/MiniCard";
+import MiniCard from "../../../components/molecules/MiniCard/MiniCard";
 
 interface HorizontalScrollProps {
   cards: CardData[];

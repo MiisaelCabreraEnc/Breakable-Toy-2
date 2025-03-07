@@ -1,4 +1,4 @@
-import { Button, Input, Select, Typography } from "@material-tailwind/react";
+import { Button, Input, Select } from "@material-tailwind/react";
 import { FunctionComponent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -31,9 +31,7 @@ const SearchForm: FunctionComponent = () => {
           onChange={(e) => setQuery(e.target.value)}
         />
         {error && (
-          <Typography type="small" className="mt-1 block text-red-500">
-            Please add a search term
-          </Typography>
+          <p className="mt-1 block text-red-500">Please add a search term</p>
         )}
       </div>
       <Select name="type" className="border">

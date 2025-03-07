@@ -1,25 +1,22 @@
 import { FunctionComponent } from "react";
 import Track from "../../../interfaces/Track";
-import { Typography } from "@material-tailwind/react";
 import TableHeadings from "../../molecules/TableHeadings/TableHeadings";
 import AlbumSongTableItem from "../../molecules/AlbumSongTableItem/AlbumSongTableItem";
 
-interface ArtistTopSongsTableProps {
+interface AlbumSongsTableProps {
   title: string;
   headings: string[];
   tracks: Track[];
 }
 
-const ArtistTopSongsTable: FunctionComponent<ArtistTopSongsTableProps> = ({
+const AlbumSongsTable: FunctionComponent<AlbumSongsTableProps> = ({
   title,
   headings,
   tracks,
 }) => {
   return (
     <div className="w-7/12  flex-col flex">
-      <Typography type="h2" className=" mb-8">
-        {title}
-      </Typography>
+      <h2 className=" mb-8">{title}</h2>
       <table className="w-full">
         <TableHeadings headings={headings} />
         <tbody className="group text-sm text-black dark:text-white">
@@ -47,4 +44,4 @@ const ArtistTopSongsTable: FunctionComponent<ArtistTopSongsTableProps> = ({
   );
 };
 
-export default ArtistTopSongsTable;
+export default AlbumSongsTable;
