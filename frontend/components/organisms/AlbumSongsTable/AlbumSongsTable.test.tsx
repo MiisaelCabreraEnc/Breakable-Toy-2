@@ -51,9 +51,6 @@ describe("ArtistTopSongsTable", () => {
   });
 
   test("renders track details correctly", () => {
-    // Given
-    const { name } = mockTracks[0];
-
     // When
     render(
       <ArtistTopSongsTable

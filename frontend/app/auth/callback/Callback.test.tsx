@@ -14,10 +14,9 @@ jest.mock("js-cookie", () => ({
   set: jest.fn(),
 }));
 
-jest.mock(
-  "../../../components/atoms/CiruclarProgress/CircularProgress",
-  () => () => <div data-testid="circular-progress" />
-);
+jest.mock("../../../components/atoms/CiruclarProgress/CircularProgress", () => (
+  <div data-testid="circular-progress" />
+));
 
 describe("Callback Component", () => {
   let pushMock: jest.Mock;

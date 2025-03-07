@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import HorizontalScroll from "./HorizontalScroll";
 
 jest.mock("../../../components/molecules/MiniCard/MiniCard", () => ({

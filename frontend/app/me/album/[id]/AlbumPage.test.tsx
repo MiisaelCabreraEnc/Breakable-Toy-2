@@ -26,57 +26,60 @@ jest.mock("js-cookie", () => ({
   get: jest.fn(),
 }));
 
-jest.mock("../../../../components/molecules/GoBack/GoBack", () => () => (
-  <div data-testid="go-back" />
-));
+jest.mock("../../../../components/molecules/GoBack/GoBack", () => {
+  const MockGoBack = () => <div data-testid="go-back" />;
+  MockGoBack.displayName = "MockGoBack";
+  return MockGoBack;
+});
 
-jest.mock(
-  "../../../../components/organisms/AlbumData/AlbumData",
-  () =>
-    ({
-      name,
-      release_date,
-      artists,
-      total_tracks,
-      total_duration,
-      image,
-    }: AlbumData) =>
-      (
-        <div data-testid="album-data">
-          <img src={image} alt={name} />
-          <p>{name}</p>
-          <p>{release_date}</p>
-          <p>{total_tracks}</p>
-          <p>{total_duration}</p>
-          <p>{artists[0]?.name}</p>
-        </div>
-      )
-);
+jest.mock("../../../../components/organisms/AlbumData/AlbumData", () => {
+  const MockAlbumData = ({
+    name,
+    release_date,
+    artists,
+    total_tracks,
+    total_duration,
+    image,
+  }: AlbumData) => (
+    <div data-testid="album-data">
+      <img src={image} alt={name} />
+      <p>{name}</p>
+      <p>{release_date}</p>
+      <p>{total_tracks}</p>
+      <p>{total_duration}</p>
+      <p>{artists[0]?.name}</p>
+    </div>
+  );
+  MockAlbumData.displayName = "MockAlbumData";
+  return MockAlbumData;
+});
 
 jest.mock(
   "../../../../components/organisms/AlbumSongsTable/AlbumSongsTable",
-  () =>
-    ({ tracks }: { tracks: Track[] }) =>
-      (
-        <table data-testid="album-songs-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Song Name</th>
-              <th>Duration</th>
+  () => {
+    const MockAlbumSongsTable = ({ tracks }: { tracks: Track[] }) => (
+      <table data-testid="album-songs-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Song Name</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tracks.map((track, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{track.name}</td>
+              <td>{track.duration_ms}</td>
             </tr>
-          </thead>
-          <tbody>
-            {tracks.map((track, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{track.name}</td>
-                <td>{track.duration_ms}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )
+          ))}
+        </tbody>
+      </table>
+    );
+    MockAlbumSongsTable.displayName = "MockAlbumSongsTable";
+    return MockAlbumSongsTable;
+  }
 );
 
 describe("AlbumPage", () => {

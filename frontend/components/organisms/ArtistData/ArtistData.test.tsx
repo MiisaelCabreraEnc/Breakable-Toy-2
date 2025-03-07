@@ -11,7 +11,7 @@ describe("ArtistData", () => {
 
   test("renders artist data correctly", () => {
     // Given
-    const { name, image, followers, genres } = mockProps;
+    const { name, image, followers } = mockProps;
 
     // When
     render(<ArtistData {...mockProps} />);

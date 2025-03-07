@@ -1,6 +1,5 @@
 import { Button, Dialog } from "@material-tailwind/react";
 import { FunctionComponent, ReactNode } from "react";
-import { useRouter } from "next/navigation";
 
 interface CustomModalProps {
   title: string;
@@ -19,8 +18,6 @@ const CustomModal: FunctionComponent<CustomModalProps> = ({
   closeButtonMessage,
   onClose,
 }) => {
-  const router = useRouter();
-
   return (
     <Dialog size="sm" open={open}>
       <Dialog.Overlay>

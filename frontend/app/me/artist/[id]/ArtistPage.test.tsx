@@ -14,61 +14,66 @@ jest.mock("js-cookie", () => ({
   get: jest.fn(),
 }));
 
-jest.mock("../../../../components/molecules/GoBack/GoBack", () => () => (
-  <div data-testid="go-back" />
-));
+jest.mock("../../../../components/molecules/GoBack/GoBack", () => {
+  const MockGoBack = () => <div data-testid="go-back" />;
+  MockGoBack.displayName = "MockGoBack";
+  return MockGoBack;
+});
 
-jest.mock(
-  "../../../../components/organisms/ArtistData/ArtistData",
-  () =>
-    ({ name, followers, genres, images }: Artist) =>
-      (
-        <div data-testid="artist-data">
-          <img src={images[0].url} alt={name} />
-          <p>{name}</p>
-          <p>{followers}</p>
-          <p>{genres.join(", ")}</p>
-        </div>
-      )
-);
+jest.mock("../../../../components/organisms/ArtistData/ArtistData", () => {
+  const MockArtistData = ({ name, followers, genres, images }: Artist) => (
+    <div data-testid="artist-data">
+      <img src={images[0].url} alt={name} />
+      <p>{name}</p>
+      <p>{followers}</p>
+      <p>{genres.join(", ")}</p>
+    </div>
+  );
+  MockArtistData.displayName = "MockArtistData";
+  return MockArtistData;
+});
 
 jest.mock(
   "../../../../components/organisms/ArtistTopSongsTable/ArtistTopSongsTable",
-  () =>
-    ({ title, tracks }: { title: string; tracks: Track[] }) =>
-      (
-        <table data-testid="artist-top-songs-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Song Name</th>
-              <th>Duration</th>
+  () => {
+    const MockArtistTopSongsTable = ({ tracks }: { tracks: Track[] }) => (
+      <table data-testid="artist-top-songs-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Song Name</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tracks.map((track, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{track.name}</td>
+              <td>{track.duration_ms}</td>
             </tr>
-          </thead>
-          <tbody>
-            {tracks.map((track, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{track.name}</td>
-                <td>{track.duration_ms}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )
+          ))}
+        </tbody>
+      </table>
+    );
+    MockArtistTopSongsTable.displayName = "MockArtistTopSongsTable";
+    return MockArtistTopSongsTable;
+  }
 );
 
 jest.mock(
   "../../../../components/organisms/HorizontalScroll/HorizontalScroll",
-  () =>
-    ({ cards }: { cards: Album[] }) =>
-      (
-        <div data-testid="album-horizontal-scroll">
-          {cards.map((card, index) => (
-            <div key={index}>{card.name}</div>
-          ))}
-        </div>
-      )
+  () => {
+    const MockHorizontalScroll = ({ cards }: { cards: Album[] }) => (
+      <div data-testid="album-horizontal-scroll">
+        {cards.map((card, index) => (
+          <div key={index}>{card.name}</div>
+        ))}
+      </div>
+    );
+    MockHorizontalScroll.displayName = "MockHorizontalScroll";
+    return MockHorizontalScroll;
+  }
 );
 
 describe("ArtistPage", () => {

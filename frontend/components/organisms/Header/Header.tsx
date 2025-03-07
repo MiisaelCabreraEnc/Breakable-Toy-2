@@ -36,7 +36,7 @@ const Header: FunctionComponent = () => {
     const token = Cookies.get("token");
 
     if (!token) {
-      MODAL_DATA.description;
+      MODAL_DATA.description = "An error has ocurred while fetching data";
       setOpen(true);
       return;
     }
